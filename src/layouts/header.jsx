@@ -8,7 +8,6 @@ const Header = () => {
       style={{
         display: "flex",
         justifyContent: "space-between",
-        margin: "20px 80px",
       }}
     >
       <div>React Workshop</div>
