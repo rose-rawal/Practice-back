@@ -2,7 +2,8 @@ import React from 'react'
 import Item from './item'
 
 const ListItems = ({
-  list
+  list,
+  onListChange
 } // props
 ) => {
   // console.log("Props: ", props)
@@ -20,7 +21,7 @@ const ListItems = ({
             return ( /** 
               concatination:   `${var}string ${var} string ${var}`
             */
-              <Item key={`${arg.title}-${index}`} title={arg.title} description={arg.description} />
+              <Item onChange={onListChange} key={`${arg.title}-${index}`} title={arg.title} description={arg.description} />
             );
           })
         }

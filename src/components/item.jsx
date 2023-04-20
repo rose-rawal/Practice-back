@@ -3,14 +3,28 @@ import IndexForm from './indexform'
 
 const Item = ({
     title,
-    description
+    description,
+    onChange
 }) => {
     const [isEdited, setEdited] = useState(false)
   if(isEdited){
-    return <IndexForm initalData={{
+    return <IndexForm 
+    initalData={{
         title,
         description
-    }} onClose={()=>{
+    }}
+    onSubmit={(updatedData)=>{
+        console.log("updated Data", updatedData)
+        const argument = {
+            oldData: {
+                title,
+                description
+            },
+            newData: updatedData
+        }
+        onChange(argument)
+    }}
+    onClose={()=>{
         setEdited(false)
     }} />
   }
@@ -44,7 +58,16 @@ const Item = ({
 
                 })
             }}>Edit</button>
-            <button>Delete</button>
+            <button onClick={()=>{
+                console.log("triggering delete:", title)
+                onChange({
+                    oldData: {
+                        title,
+                        description
+                    },
+                    newData: {}
+                }, "delete")
+            }}>Delete</button>
        </div>
     </div>
   )

@@ -16,7 +16,7 @@ const Info = ({type, children}) => {
 }
 
 Info.propTypes = {
-    type: PropTypes.oneOf(["info", "error"])
+    type: PropTypes.oneOf(["info", "error"]).isRequired
 }
 
 export default Info
