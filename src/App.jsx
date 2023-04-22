@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { routes } from "./routes";
+import ListProvider from "./contexts/listprovider";
+import { UserProvider } from "./contexts/usercontext";
 
 /**
  *
@@ -14,6 +16,8 @@ import { routes } from "./routes";
 
 const App = () => {
   return (
+    <UserProvider>
+       <ListProvider>
     <Router>
       <Routes>
         {routes.map((each) => (
@@ -21,6 +25,8 @@ const App = () => {
         ))}
       </Routes>
     </Router>
+    </ListProvider>
+    </UserProvider>
   );
 };
 

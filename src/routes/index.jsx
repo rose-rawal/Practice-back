@@ -1,6 +1,8 @@
 import Index from "../pages";
 import About from "../pages/about";
 import Contact from "../pages/contact";
+import ContextPage from "../pages/context";
+import ItemsPage from "../pages/items";
 import Page404 from "../pages/Page404";
 
 export const routes = [
@@ -22,5 +24,15 @@ export const routes = [
   {
     path: "/404",
     element: <Page404 />,
+  },
+  {
+    name: "Context",
+    path: "/context",
+    element: <ContextPage/>
+  },
+  {
+    name: "Items",
+    path: "/items",
+    element: <ItemsPage/>
   }
 ];

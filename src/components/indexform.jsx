@@ -3,6 +3,7 @@ import Info from './info'
 
 const IndexForm = ({
   initalData = {},
+  label= "Form",
   onSubmit,
   onClose
 }) => {
@@ -40,7 +41,7 @@ const IndexForm = ({
 
   return (
     <div>
-      Form
+      {label}
       <form onSubmit={handleSubmit}> 
 
         <label>

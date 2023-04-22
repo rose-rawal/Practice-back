@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Layout from "../layouts";
 import IndexForm from "../components/indexform";
 import ListItems from "../components/listitems";
+import { UserContext } from "../contexts/usercontext";
+
+
+const obj = {
+  a1: "sdfldsjf"
+}
+function add(n1, n2){
+  return n1 +n2
+}
+
+let a=1, b=2
+
+add(a,b)
 
 const Index = () => {
 
-  const [items, setItems] = useState([
-  ]);
+  const {init} = useContext(UserContext)
 
-  console.log("Items", items)
+  const [items, setItems] = useState([]);
 
+  useEffect(()=>{
+    init()
+  }, [])
   const onSubmit = (data) => {
     console.log("Data to be submitted:", data)
     // const a1 = items
@@ -77,15 +92,18 @@ d becomes [5,2,3,4]
       // valid way
       console.log("Item is being edited")
       setItems(previousItems => {
-
-        return previousItems.map(
-          each => {
-            if(each.title === data.oldData.title && each.description === data.oldData.description){
-              return data.newData
-            }
-            return each
-          }
-        )
+          const index = previousItems.indexOf(data.oldData)
+          previousItems[index] = data.newData
+          console.log(previousItems)
+          return previousItems
+        // return previousItems.map(
+        //   each => {
+        //     if(each.title === data.oldData.title && each.description === data.oldData.description){
+        //       return data.newData
+        //     }
+        //     return each
+        //   }
+        // )
       })
       // other way not preferred
       // const index = items.indexOf(data.oldData)
@@ -108,7 +126,6 @@ d becomes [5,2,3,4]
       )
     }
   }
-
 
   return <Layout>
     <IndexForm onSubmit={onSubmit}/> 

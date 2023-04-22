@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "./header";
+import { UserContext } from "../contexts/usercontext";
+import Login from "../pages/login";
 
 const Layout = ({ children }) => {
-
+  const {isLoggedIn} = useContext(UserContext)
   return (
     <div 
       style={{
@@ -10,7 +12,8 @@ const Layout = ({ children }) => {
       }}
     >
       <Header />
-      {children}
+      {isLoggedIn ? children : <Login/>}
+
     </div>
   );
 };
