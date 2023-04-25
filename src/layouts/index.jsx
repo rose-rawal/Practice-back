@@ -7,9 +7,7 @@ const Layout = ({ children }) => {
   const {isLoggedIn} = useContext(UserContext)
   return (
     <div 
-      style={{
-        margin: "20px 80px",
-      }}
+      className="mx-20 my-5 flex flex-col items-center"
     >
       <Header />
       {isLoggedIn ? children : <Login/>}

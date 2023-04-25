@@ -5,22 +5,16 @@ import { routes } from "../routes";
 const Header = () => {
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-      }}
+      className="flex justify-between mb-5 w-screen px-20"
     >
-      <div>React Workshop</div>
+      <div className="text-purple-600 font-bold uppercase">React Workshop</div>
       <div
-        style={{
-          display: "flex",
-          gap: "20px",
-        }}
+        className="flex divide-x-2 divide-[#861eb2]"
       >
         {routes
           .filter((route) => !!route.name)
           .map((each) => (
-            <Link key={each.path} to={each.path}>
+            <Link className="text-sm hover:text-purple-800 px-4" key={each.path} to={each.path}>
               {each.name}
             </Link>
           ))}
