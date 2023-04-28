@@ -39,12 +39,16 @@ export const UserProvider = ({ children }) => {
                 error: "All fields are required"
             }
         }
+        const filteredUsers = users.filter(each=>each.email === email)
 
-        if (users.filter(each => each.email === email && each.password === password).length === 0) {
+        if (filteredUsers.length === 0) {
             return {
-                error: "User with details doesnot exist"
+                error: "User doesnot exist"
             }
         }
+
+        
+        
 
         setUser(users.find(each => each.email === email && each.password === password))
         setIsLoggedIn(true)

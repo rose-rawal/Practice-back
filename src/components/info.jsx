@@ -2,14 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Info = ({type, children}) => {
-
-  const styles = {
-    color: type === "info" ? "purple": "red"
-  }
-
   return (
-    <div style={styles}>
-      {type === "info" ? "Note: ": ""}
+    <div className={`${type=== "info" ? "text-green-700": "text-red-500"}`}>
+      {type === "info" ? "": ""}
       {children}
     </div>
   )
