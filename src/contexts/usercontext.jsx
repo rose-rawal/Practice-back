@@ -39,7 +39,7 @@ export const UserProvider = ({ children }) => {
                 error: "All fields are required"
             }
         }
-        const filteredUsers = users.filter(each=>each.email === email)
+        const filteredUsers = users.filter(each=>each.email === email && each.password === password)
 
         if (filteredUsers.length === 0) {
             return {
