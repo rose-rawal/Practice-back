@@ -9,7 +9,6 @@ const Info = ({type, children}) => {
 
   return (
     <div style={styles}>
-      {type === "info" ? "Note: ": ""}
       {children}
     </div>
   )
