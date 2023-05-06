@@ -46,5 +46,5 @@ mongoose.connect(NODE_ENV==='development'?DEV_MONGO_URL:PROD_MONGO_URL)
 // Listen web requests on 3000 port
 const port = PORT || 8000
 app.listen(port, () => {
-    console.log('App listening on port localhost:8000');
+    console.log(`App listening on port localhost:${port}`);
 });
